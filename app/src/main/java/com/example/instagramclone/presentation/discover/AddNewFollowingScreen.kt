@@ -40,37 +40,37 @@ fun AddNewFollowingScreen(
         LazyColumn(
             modifier = Modifier.fillMaxSize()
         ) {
-            viewModel.users.value.data?.let {
-                item {
-                    Text(
-                        "Discover New Friends",
-                        style = TextStyle(
-                            brush = Brush.verticalGradient(
-                                colors = listOf(
-                                    Color(red = 182, green = 217, blue = 247),
-                                    Color(red = 227, green = 161, blue = 207),
-                                    Color(red = 110, green = 26, blue = 103)
-                                ),
-                                tileMode = TileMode.Mirror
+
+            item {
+                Text(
+                    "Discover New Friends",
+                    style = TextStyle(
+                        brush = Brush.verticalGradient(
+                            colors = listOf(
+                                Color(red = 182, green = 217, blue = 247),
+                                Color(red = 227, green = 161, blue = 207),
+                                Color(red = 110, green = 26, blue = 103)
                             ),
+                            tileMode = TileMode.Mirror
                         ),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(dimensionResource(id = R.dimen._15sdp)),
-                        textAlign = TextAlign.Center,
-                        fontSize = dimensionResource(id = com.intuit.ssp.R.dimen._20ssp).value.sp
+                    ),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(dimensionResource(id = R.dimen._15sdp)),
+                    textAlign = TextAlign.Center,
+                    fontSize = dimensionResource(id = com.intuit.ssp.R.dimen._20ssp).value.sp
+                )
+            }
+            items(viewModel.users.value) { user ->
+                FollowingItem(navController, user) {
+                    viewModel.addFollow(
+                        viewModel.userId.value,
+                        viewModel.userName.value,
+                        Friend(user.name, user.id)
                     )
-                }
-                items(it) { user ->
-                    FollowingItem(navController,user) {
-                        viewModel.addFollow(
-                            viewModel.userId.value,
-                            viewModel.userName.value,
-                            Friend(user.name, user.id)
-                        )
-                    }
                 }
             }
         }
+
     }
 }

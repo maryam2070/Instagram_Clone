@@ -25,7 +25,7 @@ class AddNewFollowingViewModel @Inject constructor(
     private val getFollowing: GetFollowing,
 ):ViewModel() {
 
-    private val _users= mutableStateOf<Response<List<User>>>(Response.Loading(true))
+    private val _users= mutableStateOf<List<User>>(emptyList())
     val users=_users
 
     private val _userId = mutableStateOf("")
@@ -63,7 +63,7 @@ class AddNewFollowingViewModel @Inject constructor(
                     }
 
                     is Response.Loading -> {
-                        _uiState.value = _uiState.value.copy(isLoading = _uiState.value.isLoading.and(true))
+                        _uiState.value = _uiState.value.copy(isLoading = true)
                     }
 
                     is Response.Success -> {
@@ -80,8 +80,30 @@ class AddNewFollowingViewModel @Inject constructor(
     }
 
     private fun getUsers(ids: List<String>) =viewModelScope.launch {
-        getUsers.invoke(ids).collect{
-            _users.value=it
+        getUsers.invoke(ids).collect{ response ->
+
+            when (response) {
+                is Response.Error -> {
+                    _uiState.value = _uiState.value.copy(
+                        isLoading = _uiState.value.isLoading.and(false),
+                        isError = true,
+                        errorMessage = response.message ?: Constants.UNKNOWN_ERROR_OCCURRED
+                    )
+                }
+
+                is Response.Loading -> {
+                    _uiState.value = _uiState.value.copy(isLoading = true)
+                }
+
+                is Response.Success -> {
+
+                    _uiState.value =
+                        _uiState.value.copy(isLoading = _uiState.value.isLoading.and(false))
+                    response.data?.let{
+                        _users.value=it
+                    }
+                }
+            }
         }
     }
     fun addFollow(userId:String,userName:String,follower: Friend)=viewModelScope.launch {
@@ -97,8 +119,7 @@ class AddNewFollowingViewModel @Inject constructor(
                 }
 
                 is Response.Loading -> {
-                    _uiState.value =
-                        _uiState.value.copy(isLoading = _uiState.value.isLoading.and(true))
+                    _uiState.value = _uiState.value.copy(isLoading = true)
                 }
 
                 is Response.Success -> {
