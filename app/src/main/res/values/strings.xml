@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Instagram Clone</string>
+    <string name="logo_description">Instagram Logo</string>
+    <string name="send_message">Sens Message</string>
+    <string name="default_notification_channel_id">1</string>
+    <string name="text_validation_error_min_pass_length">password should be more than 5</string>
+    <string name="text_validation_error_max_pass_length">password should be less than 12</string>
+    <string name="text_validation_error_empty_field">*required data</string>
+    <string name="text_validation_error_email">enter valid email</string>
+    <string name="text_validation_empty_uri">Please Choose Photo</string>
+
+</resources>
