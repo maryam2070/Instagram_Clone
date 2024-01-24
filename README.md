@@ -73,4 +73,8 @@ Currently I'm looking for an Android developer Role, Don't hesitate to contact m
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/maryam-amr-943a10201/)
 
 
+## License
+This Application is licensed under the MIT License. Feel free to modify and distribute it in accordance with the license terms.
+
+
 
