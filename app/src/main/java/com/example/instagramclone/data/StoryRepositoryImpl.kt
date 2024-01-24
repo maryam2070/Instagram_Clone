@@ -87,7 +87,7 @@ class StoryRepositoryImpl(
 
             for (story in stories) {
                 if (
-                    story.time.compareTo(Timestamp.now()) < 0 //24 hours
+                    story.time.compareTo(Timestamp.now()) > 0 //24 hours
                 ) {
                     ids.add(story.id)
                     stories.remove(story)

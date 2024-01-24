@@ -33,8 +33,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import com.example.instagramclone.domain.model.Story
-import com.example.instagramclone.presentation.image_view.components.DropDownMenu
 import com.example.instagramclone.presentation.navigation.Screens
+import com.example.instagramclone.presentation.story.story_details.components.DropDownMenu
 import com.example.instagramclone.utils.getImageLink
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

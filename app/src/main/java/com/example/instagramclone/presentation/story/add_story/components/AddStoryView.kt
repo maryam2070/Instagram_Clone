@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -29,7 +28,6 @@ import com.example.instagramclone.utils.getImageLink
 import com.intuit.sdp.R
 
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AddStoryView(userId: String, userName: String, onBtnClick: (String) -> Unit) {
     val content = remember {
@@ -85,7 +83,6 @@ fun AddStoryView(userId: String, userName: String, onBtnClick: (String) -> Unit)
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
-                //.height(dimensionResource(id = R.dimen._50sdp))
                 .background(Color.Transparent),
             singleLine = false,
             placeholder = {

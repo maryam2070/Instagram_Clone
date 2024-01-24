@@ -79,7 +79,25 @@ fun FeedsScreen(navController: NavController) {
                     ProfileIconRow(viewModel.userId.value, navController)
                 }
                 item {
-                    StoriesRow(viewModel, navController)
+                    LazyRow(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .wrapContentHeight()
+                            .padding(dimensionResource(id = com.intuit.sdp.R.dimen._8sdp)),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        item() {
+                            YourStory(imageUrl = viewModel.userId.value, navController)
+                        }
+
+                        items(viewModel.uiState.value.stories) { story ->
+                            StoryView(story) {
+                                viewModel.addStoryToDataStore(story.id, true)
+                                val json = Uri.encode(Gson().toJson(story))
+                                navController.navigate(Screens.StoryDetailsScreen.route + "/" + json + "/" + viewModel.userId.value)
+                            }
+                        }
+                    }
                 }
 
                 if (viewModel.uiState.value.feed.isEmpty()) {
@@ -152,25 +170,7 @@ private fun StoriesRow(
     viewModel: FeedsViewModel,
     navController: NavController
 ) {
-    LazyRow(
-        modifier = Modifier
-            .fillMaxWidth()
-            .wrapContentHeight()
-            .padding(dimensionResource(id = com.intuit.sdp.R.dimen._8sdp)),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        item() {
-            YourStory(imageUrl = viewModel.userId.value, navController)
-        }
 
-        items(viewModel.uiState.value.stories) { story ->
-            StoryView(story) {
-                viewModel.addStoryToDataStore(story.id, true)
-                val json = Uri.encode(Gson().toJson(story))
-                navController.navigate(Screens.StoryDetailsScreen.route + "/" + json + "/" + viewModel.userId.value)
-            }
-        }
-    }
 }
 
 @Composable
