@@ -17,31 +17,36 @@ real-time application helps users to communicate and share photos and stories
     - like & unlike post
     - add comment 
     - delete comment 
-    - download image from post 
+    - download image from the post 
     - view post details    
+    - view likes list 
     - feed
 - Story
     - add story
     - delete story 
-    - view story details 
+    - view story details
+    - change the design to show if the story is opened or not
 - Notifications 
     - get notified if
-        - user liked you post
-        - user commented on you post
-        - get new message       
+        - user liked your post
+        - user commented on your post
+        - get new message
+        - clicking on notification navigates user to the post/chat included in notification 
 - Search 
-    - you can search for users by user name 
+    - you can search for users by user name and view their profile 
 - friends 
     - follow someone 
-    - get followed by someone 
+    - get followed by someone
+    - view profile and posts 
+    - view following list
+    - view followers list 
 - Chat 
-    - start new chat 
+    - start a new chat 
     - get all chats.
-    
-
 
 ## Technologies 
 - Kotlin
+- clean architecture 
 - Coroutines
 - Flows and Flows Operators
 - Dagger Hilt 
@@ -66,7 +71,7 @@ real-time application helps users to communicate and share photos and stories
 ## 🚀 About Me
 I’m a passionate Android developer with a strong commitment for creating elegant and efficient mobile applications; I have had the opportunity to work on a wide range of projects. My goal is to deliver high-quality, user-friendly, and performance-driven
 applications that exceed client and user expectations.
-Currently I'm looking for an Android developer Role, Don't hesitate to contact me for an interview.
+Currently, I'm looking for an Android developer Role, Don't hesitate to contact me for an interview.
 
 
 ## 🔗 Links
