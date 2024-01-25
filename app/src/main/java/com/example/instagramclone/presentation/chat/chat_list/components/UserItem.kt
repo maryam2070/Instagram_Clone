@@ -40,7 +40,7 @@ fun UserItem(navController: NavController, item: ChatForUser) {
     ) {
         val (img, colName, time) = createRefs()
         AsyncImage(
-            model = getImageLink(item.id),
+            model = getImageLink(item.imgUrl),
             contentDescription = null,
             modifier = Modifier
                 .size(dimensionResource(id = R.dimen._45sdp))
