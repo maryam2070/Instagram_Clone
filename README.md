@@ -1,6 +1,6 @@
 
 # Instagram Clone
-real-time application helps users to communicate and share photos and stories 
+Real-time application helps users to communicate, share photos and stories 
 
 
 ## Features
